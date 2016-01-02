@@ -41,3 +41,7 @@ Vector3 Vector3::normalize() {
     return Vector3(x/denominator, y/denominator, z/denominator);
 }
 
+float Vector3::operator/(Vector3 vector3) {
+
+    return z/vector3.z;
+}

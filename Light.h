@@ -13,7 +13,7 @@ class Light {
 private:
     Vector3 positon = Vector3(0,0,0);
     RGBf strength = RGBf(0.8,0.8,0.8);//默认光强
-    int phongExponent = 8;//Phong指数
+    int phongExponent = 32;//Phong指数
 
 public:
     int getPhongExponent() const {

@@ -10,8 +10,9 @@
 #include "Ray.h"
 
 class Surface {
-protected:
+public:
     virtual bool hit(Ray* ray,double t0,double t1,Vector3& hitRec) = 0;
+    virtual Vector3 getNormalVector(Vector3 hitPoint) = 0;
 };
 
 

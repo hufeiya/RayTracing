@@ -16,6 +16,7 @@ public:
     Vector3 operator +(Vector3 vector3);
     Vector3 operator -(Vector3 vector3);
     double operator *(Vector3 vector3);
+    float operator /(Vector3 vector3);
     Vector3 operator*(double t);
     Vector3 normalize();
 };

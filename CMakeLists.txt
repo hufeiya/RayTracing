@@ -25,7 +25,7 @@ endif(NOT OPENGL_FOUND)
 #########################################################
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp Surface.cpp Surface.h Vector3.cpp Vector3.h Ray.cpp Ray.h Sphere.cpp Sphere.h Scene.cpp Scene.h RGBf.cpp RGBf.h Light.cpp Light.h)
+set(SOURCE_FILES main.cpp Surface.cpp Surface.h Vector3.cpp Vector3.h Ray.cpp Ray.h Sphere.cpp Sphere.h Scene.cpp Scene.h RGBf.cpp RGBf.h Light.cpp Light.h Ground.cpp Ground.h)
 add_executable(LightTracing ${SOURCE_FILES})
 
 

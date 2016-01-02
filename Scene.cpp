@@ -4,9 +4,15 @@
 
 #include "Scene.h"
 #include "Sphere.h"
+#include "Ground.h"
 
 //载入场景，自定义几个物体
 void Scene::createScene() {
+
+    //创建地板
+    Ground* ground = new Ground();
+    ground->setGround(Vector3(0,0,-50));
+    pSurfaces[num++] = (Surface *) ground;
 
     //新建一个球
     Sphere * sphere1 = new Sphere();

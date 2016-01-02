@@ -23,13 +23,6 @@ const int size=window_width*window_height;
 
 void display()
 {
-    //Create some nice colours (3 floats per pixel) from data -10..+10
-    /*float* pixels = new float[size*3];
-    for(int i=0;i<size;i++) {
-        colour(10.0-((i*20.0)/size),&pixels[i*3]);
-    }*/
-    //RGBf*pixels = test();
-    //float* rawPixels = (float*)pixels;
     RGBf *rgBfs = new RGBf[window_width*window_height];
     //设置视点
     Vector3 viewPoint = Vector3(100,200,100);
@@ -46,14 +39,14 @@ void display()
         for(int j = 0; j < window_width;j++)
         {
             Ray ray = Ray(viewPoint,Vector3(j*100.0f/512.0f,0,i*100.0f/512.0f));
-            //依次遍历场景中的物体，这里暂时只有一个球
+            //依次遍历场景中的物体
             for(int k = 0; k < scene.getNum();k++)
             {
-                Sphere *sphere = (Sphere *) scene.getPSurfaces()[k];
+                Surface *surface =  scene.getPSurfaces()[k];
                 Vector3 hitRec = Vector3(0,0,0);
-                if(sphere->hit(&ray,0,1000,hitRec))
+                if(surface->hit(&ray,0,100,hitRec))
                 {
-                    RGBf rgBf = light.Phong(hitRec,viewPoint,(hitRec-sphere->getCenter()).normalize());
+                    RGBf rgBf = light.Phong(hitRec,viewPoint,surface->getNormalVector(hitRec));
                     rgBfs[i*window_height+j] = rgBf;
                 }
             }
@@ -61,8 +54,6 @@ void display()
     }
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    //http://msdn2.microsoft.com/en-us/library/ms537062.aspx
-    //glDrawPixels writes a block of pixels to the framebuffer.
 
     glDrawPixels(window_width,window_height,GL_RGB,GL_FLOAT,rgBfs);
 
@@ -74,7 +65,7 @@ int main(int argc, char** argv) {
 
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
     glutInitWindowSize(window_width, window_height);
-    glutCreateWindow("OpenGL glDrawPixels demo");
+    glutCreateWindow("RayTracing demo by hufeiya");
 
     glutDisplayFunc(display);
     //glutReshapeFunc(reshape);

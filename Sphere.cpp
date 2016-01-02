@@ -4,6 +4,9 @@
 
 #include "Sphere.h"
 #include <cmath>
+/**
+ * 求光线和物体焦点，范围(t0,t1]
+ * */
 bool Sphere::hit(Ray* ray, double t0, double t1, Vector3& hitRec) {
     Vector3 &c = this->center;
     Vector3 &e = ray->e;
@@ -32,3 +35,6 @@ bool Sphere::hit(Ray* ray, double t0, double t1, Vector3& hitRec) {
 }
 
 
+Vector3 Sphere::getNormalVector(Vector3 hitPoint) {
+    return (hitPoint-center).normalize();
+}
