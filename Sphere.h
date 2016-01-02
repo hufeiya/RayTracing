@@ -30,9 +30,7 @@ public:
     void setRadius(double radius) {
         Sphere::radius = radius;
     }
-
-private:
-    virtual Vector3 getNormalVector(Vector3 hitPoint);
+     Vector3 getNormalVector(Vector3 hitPoint);
 };
 
 

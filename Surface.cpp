@@ -3,3 +3,8 @@
 //
 
 #include "Surface.h"
+#include "RGBf.h"
+
+void Surface::setColor(RGBf targetColor) {
+    color = targetColor;
+}

@@ -7,9 +7,9 @@
 /**
  * 用Phong模型计算光照
  * */
-RGBf Light::Phong(Vector3 hitPoint, Vector3 eye, Vector3 normalVec) {
+RGBf Light::Phong(Vector3 hitPoint, Vector3 eye, Vector3 normalVec,RGBf surfaceColor) {
     //初始化自带环境光照
-    RGBf result = RGBf(0.1,0.1,0.1);
+    RGBf result = RGBf(0.1,0.1,0.1)+surfaceColor;
     //计算泛光
     Vector3 l = (this->positon - hitPoint).normalize();
     float floodStrength = l*normalVec;

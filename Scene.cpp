@@ -18,18 +18,21 @@ void Scene::createScene() {
     Sphere * sphere1 = new Sphere();
     sphere1->setCenter(Vector3(0,-300,0));
     sphere1->setRadius(50);
+    ((Surface*)sphere1)->setColor(RGBf(0,0,0.3));
     pSurfaces[num++] = (Surface *) sphere1;
 
     //新建第二个球
     Sphere * sphere2 = new Sphere();
     sphere2->setCenter(Vector3(100,-400,0));
     sphere2->setRadius(50);
+    ((Surface*)sphere2)->setColor(RGBf(0.3,0,0));
     pSurfaces[num++] = (Surface *) sphere2;
 
     //新建第3个球
     Sphere * sphere3 = new Sphere();
     sphere3->setCenter(Vector3(-100,-200,0));
     sphere3->setRadius(50);
+    ((Surface*)sphere3)->setColor(RGBf(0,0.3,0));
     pSurfaces[num++] = (Surface *) sphere3;
 
     //新建第4个球

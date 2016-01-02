@@ -46,7 +46,7 @@ void display()
                 Vector3 hitRec = Vector3(0,0,0);
                 if(surface->hit(&ray,0,100,hitRec))
                 {
-                    RGBf rgBf = light.Phong(hitRec,viewPoint,surface->getNormalVector(hitRec));
+                    RGBf rgBf = light.Phong(hitRec,viewPoint,surface->getNormalVector(hitRec),surface->getColor());
                     rgBfs[i*window_height+j] = rgBf;
                 }
             }

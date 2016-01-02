@@ -25,7 +25,7 @@ public:
     }
 
 public:
-    RGBf Phong(Vector3 hitPoint,Vector3 eye,Vector3 normalVec);
+    RGBf Phong(Vector3 hitPoint,Vector3 eye,Vector3 normalVec,RGBf surfaceColor);
     const Vector3 &getPositon() const {
         return positon;
     }
