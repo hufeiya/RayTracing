@@ -9,9 +9,13 @@
 //载入场景，自定义几个物体
 void Scene::createScene() {
 
+    viewPoint = new Vector3(100,200,100);
+    light = new Light();
+    light->setPositon(Vector3(0,-100,300));
+
     //创建地板
     Ground* ground = new Ground();
-    ground->setGround(Vector3(0,0,-50));
+    ground->setGround(Vector3(0,0,-200));
     pSurfaces[num++] = (Surface *) ground;
 
     //新建一个球
@@ -40,6 +44,15 @@ void Scene::createScene() {
     sphere4->setCenter(Vector3(-300,-1000,0));
     sphere4->setRadius(50);
     pSurfaces[num++] = (Surface *) sphere4;
+
+    //新建第5个球
+    Sphere * sphere5 = new Sphere();
+    sphere5->setCenter(Vector3(0,-200,100));
+    sphere5->setRadius(50);
+    ((Surface*)sphere1)->setColor(RGBf(0,0,0.3));
+    pSurfaces[num++] = (Surface *) sphere5;
+
+
 }
 
 /**
@@ -47,4 +60,10 @@ void Scene::createScene() {
 Scene::Scene(int sum) {
     this->sum = sum;
     pSurfaces = new Surface*[sum];
+}
+
+Scene::~Scene() {
+    delete viewPoint;
+    delete light;
+    delete []pSurfaces;
 }

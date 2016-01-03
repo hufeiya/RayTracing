@@ -7,12 +7,32 @@
 
 
 #include "Surface.h"
+#include "Light.h"
 
 class Scene {
 private:
     Surface ** pSurfaces;
-    int num = 0;
-    int sum = 0;
+    int num = 0;//物体数目
+    int sum = 0;//预分配物体空间
+    Vector3 *viewPoint;//视点
+    Light *light;//光线
+public:
+    Light *getLight() const {
+        return light;
+    }
+
+    void setLight(Light *light) {
+        Scene::light = light;
+    }
+
+    Vector3 *getViewPoint() const {
+        return viewPoint;
+    }
+
+    void setViewPoint(Vector3 *viewPoint) {
+        Scene::viewPoint = viewPoint;
+    }
+
 public:
     Scene(int sum);
     void createScene();
@@ -40,6 +60,8 @@ public:
     void setSum(int sum) {
         Scene::sum = sum;
     }
+
+     ~Scene();
 };
 
 

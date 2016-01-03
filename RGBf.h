@@ -14,8 +14,10 @@ public:
     RGBf();
     RGBf preventOverFlow();
     RGBf(float, float,float);
-    RGBf operator+(RGBf& b);
+    RGBf operator+(RGBf& n);
     RGBf operator*(float value);
+    RGBf operator/(int value);
+    bool operator<(RGBf n);
 };
 
 

@@ -28,3 +28,11 @@ RGBf RGBf::preventOverFlow() {
 RGBf::RGBf() {
 
 }
+
+bool RGBf::operator<(RGBf n) {
+    return r < n.r && g < n.g && b < n.b;
+}
+
+RGBf RGBf::operator/(int value) {
+    return RGBf(r/value,g/value,b/value);
+}
